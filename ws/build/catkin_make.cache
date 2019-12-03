@@ -1,0 +1,2 @@
+
+-DCATKIN_DEVEL_PREFIX=/home/ubuntu/project_theia/ws/devel -DCMAKE_INSTALL_PREFIX=/home/ubuntu/project_theia/ws/install -G Unix Makefiles
