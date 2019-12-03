@@ -1,18 +1,10 @@
 # Project Theia
 
-## Setup on Pi
-1. Install Ubuntu 18.04 (Bionic) on Pi
-2. Enable SSH and I2C
-3. Restart Pi
-4. Install updates: ```sudo apt-get install dnsmasq-base```
-
-1. Install Raspbian (Stretch) onto the SD card
-2. Enable SSH and I2C `Preferences >> Raspberry Pi Configuration >> Interfaces` (Enable SSH and I2C) 
-3. Restart Pi
-4. Install updates: ```sudo apt-get install dnsmasq-base```
-
 ## Setup on Ubuntu
-Open the network manager: ```nm-connection-editor```
+Open the network manager with the command: 
+```
+$ nm-connection-editor
+```
 
 Setup a new connection accordingly:
 1. `+` sign (Add a new connection)
@@ -27,16 +19,42 @@ Setup a new connection accordingly:
 
 Reference [SSH to RPi without a network connection?](https://raspberrypi.stackexchange.com/questions/3867/ssh-to-rpi-without-a-network-connection/53823#53823)
 
-## Access Pi over Ethernet
-1. Retrieve Raspberry Pi ip address with: ```ping raspberrypi.local```
-2. Connect over SSH with: ```ssh pi@[ip address]```
-3. Default login
-   - username: pi
-   - password: raspberry
-4. Check internet connection with: ```ping google.com```
+## Setup on Pi
 
-## Install ROS
-1. Confirm Raspbian (Stretch) OS with: `cat /etc/os-release`
+###### Setup for SSH
+1. Install Ubuntu 18.04 (Bionic) Server on Pi
+   - Retrieve Ubuntu `.img` file for `armhf` from [here](https://wiki.ubuntu/com/ARM/RaspberryPi).
+   - Follow the installation instructions found [here](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).
+2. Default login:
+   - username: ubuntu
+   - password: ubuntu
+     - It will ask you to create a new password
+3. Enable SSH by entering the command:
+```
+$ sudo apt install ssh
+```
+
+###### Access Pi over Ethernet (SSH)
+1. Run the command:
+```
+$ sudo apt install net-tools
+```
+2. Retrieve ip address with the command: 
+```
+$ arp -a
+```
+   - Connected device name is likely `enp4s0`
+3. Connect over SSH with the command:
+```
+$ ssh ubuntu@[ip address]
+```
+   - May be asked to update the host key (follow the instructions presented)
+4. Login with:
+   - username: ubuntu
+   - password: /[your password/]
+
+###### Install ROS Melodic
+1. Install updates: ```sudo apt-get install dnsmasq-base```
 
 ## Launch ROS Nodes
 
