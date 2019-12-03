@@ -1,7 +1,12 @@
 # Project Theia
 
 ## Setup on Pi
-1. Install Raspbian onto the SD card
+1. Install Ubuntu 18.04 (Bionic) on Pi
+2. Enable SSH and I2C
+3. Restart Pi
+4. Install updates: ```sudo apt-get install dnsmasq-base```
+
+1. Install Raspbian (Stretch) onto the SD card
 2. Enable SSH and I2C `Preferences >> Raspberry Pi Configuration >> Interfaces` (Enable SSH and I2C) 
 3. Restart Pi
 4. Install updates: ```sudo apt-get install dnsmasq-base```
@@ -28,5 +33,10 @@ Reference [SSH to RPi without a network connection?](https://raspberrypi.stackex
 3. Default login
    - username: pi
    - password: raspberry
+4. Check internet connection with: ```ping google.com```
 
-## Run
+## Install ROS
+1. Confirm Raspbian (Stretch) OS with: `cat /etc/os-release`
+
+## Launch ROS Nodes
+
