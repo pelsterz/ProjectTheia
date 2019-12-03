@@ -25,5 +25,8 @@ Reference [SSH to RPi without a network connection?](https://raspberrypi.stackex
 ## Access Pi over Ethernet
 1. Retrieve Raspberry Pi ip address with: ```ping raspberrypi.local```
 2. Connect over SSH with: ```ssh pi@[ip address]```
+3. Default login
+   - username: pi
+   - password: raspberry
 
 ## Run
