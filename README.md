@@ -83,22 +83,6 @@ $ sudo apt-get install python-smbus
 ```
    - Allows us to use I2C with python
 
-###### Install ROS Melodic
-1. Follow the install instructions found [here](http://wiki.ros.org/melodic/Installation/Ubuntu).
-   - Follow installation instructions 1.2 - 1.7
-   - Install the ROS-Base configuration
-
-Reference: [Ros Melodic Morenia](https://http://wiki.ros.org/melodic#Platforms)
-
-###### Setup ROS Workspace
-1. Create workspace directory
-2. Enter workspace directory
-3. Create `src` directory
-4. Run the command:
-```
-$ catkin_make
-```
-
 ###### Test I2C Connection
 1. Wire the Raspberry Pi to the Arduino UNO
 ```
@@ -124,5 +108,21 @@ $ sudo ./i2c_comms_test.py
    - Response will be seen in the terminal
    - Print statements can also be seen in the Arduino Monitor
 
-## Launch ROS Nodes
+## Setup ROS on the Pi
+
+###### Install ROS Melodic
+1. Follow the install instructions found [here](http://wiki.ros.org/melodic/Installation/Ubuntu).
+   - Follow installation instructions 1.2 - 1.7
+   - Install the ROS-Base configuration
+
+Reference: [Ros Melodic Morenia](https://http://wiki.ros.org/melodic#Platforms)
+
+###### Setup ROS Workspace
+1. Create workspace directory
+2. Enter workspace directory
+3. Create `src` directory
+4. Run the command:
+```
+$ catkin_make
+```
 
