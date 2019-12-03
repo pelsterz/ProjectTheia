@@ -17,7 +17,7 @@ Setup a new connection accordingly:
 
 **No need to restart**
 
-Reference [SSH to RPi without a network connection?](https://raspberrypi.stackexchange.com/questions/3867/ssh-to-rpi-without-a-network-connection/53823#53823)
+Reference: [SSH to RPi without a network connection?](https://raspberrypi.stackexchange.com/questions/3867/ssh-to-rpi-without-a-network-connection/53823#53823)
 
 ## Setup on Pi
 
@@ -51,10 +51,12 @@ $ ssh ubuntu@[ip address]
    - May be asked to update the host key (follow the instructions presented)
 4. Login with:
    - username: ubuntu
-   - password: /[your password/]
+   - password: [your password]
 
 ###### Install ROS Melodic
-1. Install updates: ```sudo apt-get install dnsmasq-base```
+1. Follow the install instructions found [here](http://wiki.ros.org/melodic/Installation/Ubuntu).
+
+Reference: [Ros Melodic Morenia](https://http://wiki.ros.org/melodic#Platforms)
 
 ## Launch ROS Nodes
 
