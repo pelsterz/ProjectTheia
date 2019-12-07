@@ -29,7 +29,7 @@ if __name__ == "__main__":
     while not rospy.is_shutdown():
         # Add values to message
         msg.header.stamp = rospy.Time.now()
-        msg.raw = bus.read_word_data(address, 0)
+        msg.value = bus.read_word_data(address, 0)
 
         pub.publish(msg)
         rate.sleep()

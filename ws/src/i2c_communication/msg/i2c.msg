@@ -1,2 +1,2 @@
 Header header
-uint16 raw
+uint16 value
