@@ -1,0 +1,3 @@
+<launch>
+	<node name="read_i2c" pkg="i2c_communication" type="read_i2c.py" />
+</launch>
