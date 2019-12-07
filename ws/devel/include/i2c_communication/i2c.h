@@ -26,11 +26,11 @@ struct i2c_
 
   i2c_()
     : header()
-    , raw(0)  {
+    , value(0)  {
     }
   i2c_(const ContainerAllocator& _alloc)
     : header(_alloc)
-    , raw(0)  {
+    , value(0)  {
   (void)_alloc;
     }
 
@@ -39,8 +39,8 @@ struct i2c_
    typedef  ::std_msgs::Header_<ContainerAllocator>  _header_type;
   _header_type header;
 
-   typedef uint16_t _raw_type;
-  _raw_type raw;
+   typedef uint16_t _value_type;
+  _value_type value;
 
 
 
@@ -120,12 +120,12 @@ struct MD5Sum< ::i2c_communication::i2c_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "c70b01a642177dd8a27557273aacf98d";
+    return "5760aa9c40c2caa52a04d293094e679d";
   }
 
   static const char* value(const ::i2c_communication::i2c_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xc70b01a642177dd8ULL;
-  static const uint64_t static_value2 = 0xa27557273aacf98dULL;
+  static const uint64_t static_value1 = 0x5760aa9c40c2caa5ULL;
+  static const uint64_t static_value2 = 0x2a04d293094e679dULL;
 };
 
 template<class ContainerAllocator>
@@ -145,7 +145,7 @@ struct Definition< ::i2c_communication::i2c_<ContainerAllocator> >
   static const char* value()
   {
     return "Header header\n"
-"uint16 raw\n"
+"uint16 value\n"
 "\n"
 "================================================================================\n"
 "MSG: std_msgs/Header\n"
@@ -181,7 +181,7 @@ namespace serialization
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
       stream.next(m.header);
-      stream.next(m.raw);
+      stream.next(m.value);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -203,8 +203,8 @@ struct Printer< ::i2c_communication::i2c_<ContainerAllocator> >
     s << indent << "header: ";
     s << std::endl;
     Printer< ::std_msgs::Header_<ContainerAllocator> >::stream(s, indent + "  ", v.header);
-    s << indent << "raw: ";
-    Printer<uint16_t>::stream(s, indent + "  ", v.raw);
+    s << indent << "value: ";
+    Printer<uint16_t>::stream(s, indent + "  ", v.value);
   }
 };
 

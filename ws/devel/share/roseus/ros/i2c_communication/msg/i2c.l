@@ -16,17 +16,17 @@
 
 (defclass i2c_communication::i2c
   :super ros::object
-  :slots (_header _raw ))
+  :slots (_header _value ))
 
 (defmethod i2c_communication::i2c
   (:init
    (&key
     ((:header __header) (instance std_msgs::Header :init))
-    ((:raw __raw) 0)
+    ((:value __value) 0)
     )
    (send-super :init)
    (setq _header __header)
-   (setq _raw (round __raw))
+   (setq _value (round __value))
    self)
   (:header
    (&rest __header)
@@ -35,15 +35,15 @@
      (progn
        (if __header (setq _header (car __header)))
        _header)))
-  (:raw
-   (&optional __raw)
-   (if __raw (setq _raw __raw)) _raw)
+  (:value
+   (&optional __value)
+   (if __value (setq _value __value)) _value)
   (:serialization-length
    ()
    (+
     ;; std_msgs/Header _header
     (send _header :serialization-length)
-    ;; uint16 _raw
+    ;; uint16 _value
     2
     ))
   (:serialize
@@ -52,25 +52,25 @@
               (make-string-output-stream (send self :serialization-length)))))
      ;; std_msgs/Header _header
        (send _header :serialize s)
-     ;; uint16 _raw
-       (write-word _raw s)
+     ;; uint16 _value
+       (write-word _value s)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
    ;; std_msgs/Header _header
      (send _header :deserialize buf ptr-) (incf ptr- (send _header :serialization-length))
-   ;; uint16 _raw
-     (setq _raw (sys::peek buf ptr- :short)) (incf ptr- 2)
+   ;; uint16 _value
+     (setq _value (sys::peek buf ptr- :short)) (incf ptr- 2)
    ;;
    self)
   )
 
-(setf (get i2c_communication::i2c :md5sum-) "c70b01a642177dd8a27557273aacf98d")
+(setf (get i2c_communication::i2c :md5sum-) "5760aa9c40c2caa52a04d293094e679d")
 (setf (get i2c_communication::i2c :datatype-) "i2c_communication/i2c")
 (setf (get i2c_communication::i2c :definition-)
       "Header header
-uint16 raw
+uint16 value
 
 ================================================================================
 MSG: std_msgs/Header
@@ -92,6 +92,6 @@ string frame_id
 
 
 
-(provide :i2c_communication/i2c "c70b01a642177dd8a27557273aacf98d")
+(provide :i2c_communication/i2c "5760aa9c40c2caa52a04d293094e679d")
 
 

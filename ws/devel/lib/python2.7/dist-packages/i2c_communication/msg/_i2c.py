@@ -8,11 +8,11 @@ import struct
 import std_msgs.msg
 
 class i2c(genpy.Message):
-  _md5sum = "c70b01a642177dd8a27557273aacf98d"
+  _md5sum = "5760aa9c40c2caa52a04d293094e679d"
   _type = "i2c_communication/i2c"
   _has_header = True #flag to mark the presence of a Header object
   _full_text = """Header header
-uint16 raw
+uint16 value
 
 ================================================================================
 MSG: std_msgs/Header
@@ -30,7 +30,7 @@ time stamp
 #Frame this data is associated with
 string frame_id
 """
-  __slots__ = ['header','raw']
+  __slots__ = ['header','value']
   _slot_types = ['std_msgs/Header','uint16']
 
   def __init__(self, *args, **kwds):
@@ -41,7 +41,7 @@ string frame_id
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       header,raw
+       header,value
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -52,11 +52,11 @@ string frame_id
       #message fields cannot be None, assign default values for those that are
       if self.header is None:
         self.header = std_msgs.msg.Header()
-      if self.raw is None:
-        self.raw = 0
+      if self.value is None:
+        self.value = 0
     else:
       self.header = std_msgs.msg.Header()
-      self.raw = 0
+      self.value = 0
 
   def _get_types(self):
     """
@@ -78,7 +78,7 @@ string frame_id
         _x = _x.encode('utf-8')
         length = len(_x)
       buff.write(struct.pack('<I%ss'%length, length, _x))
-      buff.write(_get_struct_H().pack(self.raw))
+      buff.write(_get_struct_H().pack(self.value))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -106,7 +106,7 @@ string frame_id
         self.header.frame_id = str[start:end]
       start = end
       end += 2
-      (self.raw,) = _get_struct_H().unpack(str[start:end])
+      (self.value,) = _get_struct_H().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -127,7 +127,7 @@ string frame_id
         _x = _x.encode('utf-8')
         length = len(_x)
       buff.write(struct.pack('<I%ss'%length, length, _x))
-      buff.write(_get_struct_H().pack(self.raw))
+      buff.write(_get_struct_H().pack(self.value))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -156,7 +156,7 @@ string frame_id
         self.header.frame_id = str[start:end]
       start = end
       end += 2
-      (self.raw,) = _get_struct_H().unpack(str[start:end])
+      (self.value,) = _get_struct_H().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
