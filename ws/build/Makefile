@@ -284,6 +284,357 @@ gtest/fast:
 	$(MAKE) -f gtest/googlemock/gtest/CMakeFiles/gtest.dir/build.make gtest/googlemock/gtest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
+#=============================================================================
+# Target rules for targets named i2c_communication_genpy
+
+# Build rule for target.
+i2c_communication_genpy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 i2c_communication_genpy
+.PHONY : i2c_communication_genpy
+
+# fast build rule for target.
+i2c_communication_genpy/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/i2c_communication_genpy.dir/build.make i2c_communication/CMakeFiles/i2c_communication_genpy.dir/build
+.PHONY : i2c_communication_genpy/fast
+
+#=============================================================================
+# Target rules for targets named i2c_communication_generate_messages_nodejs
+
+# Build rule for target.
+i2c_communication_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 i2c_communication_generate_messages_nodejs
+.PHONY : i2c_communication_generate_messages_nodejs
+
+# fast build rule for target.
+i2c_communication_generate_messages_nodejs/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/i2c_communication_generate_messages_nodejs.dir/build.make i2c_communication/CMakeFiles/i2c_communication_generate_messages_nodejs.dir/build
+.PHONY : i2c_communication_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named i2c_communication_generate_messages_eus
+
+# Build rule for target.
+i2c_communication_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 i2c_communication_generate_messages_eus
+.PHONY : i2c_communication_generate_messages_eus
+
+# fast build rule for target.
+i2c_communication_generate_messages_eus/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/i2c_communication_generate_messages_eus.dir/build.make i2c_communication/CMakeFiles/i2c_communication_generate_messages_eus.dir/build
+.PHONY : i2c_communication_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named i2c_communication_gencpp
+
+# Build rule for target.
+i2c_communication_gencpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 i2c_communication_gencpp
+.PHONY : i2c_communication_gencpp
+
+# fast build rule for target.
+i2c_communication_gencpp/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/i2c_communication_gencpp.dir/build.make i2c_communication/CMakeFiles/i2c_communication_gencpp.dir/build
+.PHONY : i2c_communication_gencpp/fast
+
+#=============================================================================
+# Target rules for targets named i2c_communication_generate_messages_cpp
+
+# Build rule for target.
+i2c_communication_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 i2c_communication_generate_messages_cpp
+.PHONY : i2c_communication_generate_messages_cpp
+
+# fast build rule for target.
+i2c_communication_generate_messages_cpp/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/i2c_communication_generate_messages_cpp.dir/build.make i2c_communication/CMakeFiles/i2c_communication_generate_messages_cpp.dir/build
+.PHONY : i2c_communication_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named _i2c_communication_generate_messages_check_deps_i2c
+
+# Build rule for target.
+_i2c_communication_generate_messages_check_deps_i2c: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _i2c_communication_generate_messages_check_deps_i2c
+.PHONY : _i2c_communication_generate_messages_check_deps_i2c
+
+# fast build rule for target.
+_i2c_communication_generate_messages_check_deps_i2c/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/_i2c_communication_generate_messages_check_deps_i2c.dir/build.make i2c_communication/CMakeFiles/_i2c_communication_generate_messages_check_deps_i2c.dir/build
+.PHONY : _i2c_communication_generate_messages_check_deps_i2c/fast
+
+#=============================================================================
+# Target rules for targets named rosgraph_msgs_generate_messages_cpp
+
+# Build rule for target.
+rosgraph_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_cpp
+.PHONY : rosgraph_msgs_generate_messages_cpp
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make i2c_communication/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
+.PHONY : rosgraph_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named i2c_communication_generate_messages_py
+
+# Build rule for target.
+i2c_communication_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 i2c_communication_generate_messages_py
+.PHONY : i2c_communication_generate_messages_py
+
+# fast build rule for target.
+i2c_communication_generate_messages_py/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/i2c_communication_generate_messages_py.dir/build.make i2c_communication/CMakeFiles/i2c_communication_generate_messages_py.dir/build
+.PHONY : i2c_communication_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named rosgraph_msgs_generate_messages_lisp
+
+# Build rule for target.
+rosgraph_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_lisp
+.PHONY : rosgraph_msgs_generate_messages_lisp
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make i2c_communication/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
+.PHONY : rosgraph_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named i2c_communication_geneus
+
+# Build rule for target.
+i2c_communication_geneus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 i2c_communication_geneus
+.PHONY : i2c_communication_geneus
+
+# fast build rule for target.
+i2c_communication_geneus/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/i2c_communication_geneus.dir/build.make i2c_communication/CMakeFiles/i2c_communication_geneus.dir/build
+.PHONY : i2c_communication_geneus/fast
+
+#=============================================================================
+# Target rules for targets named roscpp_generate_messages_py
+
+# Build rule for target.
+roscpp_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_py
+.PHONY : roscpp_generate_messages_py
+
+# fast build rule for target.
+roscpp_generate_messages_py/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/roscpp_generate_messages_py.dir/build.make i2c_communication/CMakeFiles/roscpp_generate_messages_py.dir/build
+.PHONY : roscpp_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named i2c_communication_gennodejs
+
+# Build rule for target.
+i2c_communication_gennodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 i2c_communication_gennodejs
+.PHONY : i2c_communication_gennodejs
+
+# fast build rule for target.
+i2c_communication_gennodejs/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/i2c_communication_gennodejs.dir/build.make i2c_communication/CMakeFiles/i2c_communication_gennodejs.dir/build
+.PHONY : i2c_communication_gennodejs/fast
+
+#=============================================================================
+# Target rules for targets named roscpp_generate_messages_eus
+
+# Build rule for target.
+roscpp_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_eus
+.PHONY : roscpp_generate_messages_eus
+
+# fast build rule for target.
+roscpp_generate_messages_eus/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/roscpp_generate_messages_eus.dir/build.make i2c_communication/CMakeFiles/roscpp_generate_messages_eus.dir/build
+.PHONY : roscpp_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named rosgraph_msgs_generate_messages_eus
+
+# Build rule for target.
+rosgraph_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_eus
+.PHONY : rosgraph_msgs_generate_messages_eus
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_eus/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make i2c_communication/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
+.PHONY : rosgraph_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named i2c_communication_generate_messages_lisp
+
+# Build rule for target.
+i2c_communication_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 i2c_communication_generate_messages_lisp
+.PHONY : i2c_communication_generate_messages_lisp
+
+# fast build rule for target.
+i2c_communication_generate_messages_lisp/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/i2c_communication_generate_messages_lisp.dir/build.make i2c_communication/CMakeFiles/i2c_communication_generate_messages_lisp.dir/build
+.PHONY : i2c_communication_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named roscpp_generate_messages_nodejs
+
+# Build rule for target.
+roscpp_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_nodejs
+.PHONY : roscpp_generate_messages_nodejs
+
+# fast build rule for target.
+roscpp_generate_messages_nodejs/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make i2c_communication/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
+.PHONY : roscpp_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_lisp
+
+# Build rule for target.
+std_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_lisp
+.PHONY : std_msgs_generate_messages_lisp
+
+# fast build rule for target.
+std_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make i2c_communication/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
+.PHONY : std_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_cpp
+
+# Build rule for target.
+std_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_cpp
+.PHONY : std_msgs_generate_messages_cpp
+
+# fast build rule for target.
+std_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make i2c_communication/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+.PHONY : std_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_nodejs
+
+# Build rule for target.
+std_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_nodejs
+.PHONY : std_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+std_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make i2c_communication/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
+.PHONY : std_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named rosgraph_msgs_generate_messages_py
+
+# Build rule for target.
+rosgraph_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_py
+.PHONY : rosgraph_msgs_generate_messages_py
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_py/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make i2c_communication/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
+.PHONY : rosgraph_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_py
+
+# Build rule for target.
+std_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_py
+.PHONY : std_msgs_generate_messages_py
+
+# fast build rule for target.
+std_msgs_generate_messages_py/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/std_msgs_generate_messages_py.dir/build.make i2c_communication/CMakeFiles/std_msgs_generate_messages_py.dir/build
+.PHONY : std_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named i2c_communication_genlisp
+
+# Build rule for target.
+i2c_communication_genlisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 i2c_communication_genlisp
+.PHONY : i2c_communication_genlisp
+
+# fast build rule for target.
+i2c_communication_genlisp/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/i2c_communication_genlisp.dir/build.make i2c_communication/CMakeFiles/i2c_communication_genlisp.dir/build
+.PHONY : i2c_communication_genlisp/fast
+
+#=============================================================================
+# Target rules for targets named rosgraph_msgs_generate_messages_nodejs
+
+# Build rule for target.
+rosgraph_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_nodejs
+.PHONY : rosgraph_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make i2c_communication/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
+.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_eus
+
+# Build rule for target.
+std_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_eus
+.PHONY : std_msgs_generate_messages_eus
+
+# fast build rule for target.
+std_msgs_generate_messages_eus/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make i2c_communication/CMakeFiles/std_msgs_generate_messages_eus.dir/build
+.PHONY : std_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named roscpp_generate_messages_lisp
+
+# Build rule for target.
+roscpp_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_lisp
+.PHONY : roscpp_generate_messages_lisp
+
+# fast build rule for target.
+roscpp_generate_messages_lisp/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make i2c_communication/CMakeFiles/roscpp_generate_messages_lisp.dir/build
+.PHONY : roscpp_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named roscpp_generate_messages_cpp
+
+# Build rule for target.
+roscpp_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_cpp
+.PHONY : roscpp_generate_messages_cpp
+
+# fast build rule for target.
+roscpp_generate_messages_cpp/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make i2c_communication/CMakeFiles/roscpp_generate_messages_cpp.dir/build
+.PHONY : roscpp_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named i2c_communication_generate_messages
+
+# Build rule for target.
+i2c_communication_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 i2c_communication_generate_messages
+.PHONY : i2c_communication_generate_messages
+
+# fast build rule for target.
+i2c_communication_generate_messages/fast:
+	$(MAKE) -f i2c_communication/CMakeFiles/i2c_communication_generate_messages.dir/build.make i2c_communication/CMakeFiles/i2c_communication_generate_messages.dir/build
+.PHONY : i2c_communication_generate_messages/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -306,6 +657,33 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
+	@echo "... i2c_communication_genpy"
+	@echo "... i2c_communication_generate_messages_nodejs"
+	@echo "... i2c_communication_generate_messages_eus"
+	@echo "... i2c_communication_gencpp"
+	@echo "... i2c_communication_generate_messages_cpp"
+	@echo "... _i2c_communication_generate_messages_check_deps_i2c"
+	@echo "... rosgraph_msgs_generate_messages_cpp"
+	@echo "... i2c_communication_generate_messages_py"
+	@echo "... rosgraph_msgs_generate_messages_lisp"
+	@echo "... i2c_communication_geneus"
+	@echo "... roscpp_generate_messages_py"
+	@echo "... i2c_communication_gennodejs"
+	@echo "... roscpp_generate_messages_eus"
+	@echo "... rosgraph_msgs_generate_messages_eus"
+	@echo "... i2c_communication_generate_messages_lisp"
+	@echo "... roscpp_generate_messages_nodejs"
+	@echo "... std_msgs_generate_messages_lisp"
+	@echo "... std_msgs_generate_messages_cpp"
+	@echo "... std_msgs_generate_messages_nodejs"
+	@echo "... rosgraph_msgs_generate_messages_py"
+	@echo "... std_msgs_generate_messages_py"
+	@echo "... i2c_communication_genlisp"
+	@echo "... rosgraph_msgs_generate_messages_nodejs"
+	@echo "... std_msgs_generate_messages_eus"
+	@echo "... roscpp_generate_messages_lisp"
+	@echo "... roscpp_generate_messages_cpp"
+	@echo "... i2c_communication_generate_messages"
 .PHONY : help
 
 

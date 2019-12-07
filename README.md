@@ -83,6 +83,32 @@ $ sudo apt-get install python-smbus
 ```
    - Allows us to use I2C with python
 
+4. Enable kernel I2C module with:
+```
+$ sudo nano /etc/modules
+```
+   - Update the file to contain:
+```
+# /etc/modules: kernel modules to load at boot time.
+#
+# This file contains the names of kernel modules that should be loaded
+# at boot time, one per line. Lines beginning with "#" are ignored.
+# Parameters can be specified after the module name.
+
+snd-bcm2835
+i2c-dev
+```
+5. Allow user access to I2C devices with:
+```
+$ sudo adduser ubuntu i2c
+```
+   - Reboot with:
+```
+$ sudo reboot
+```
+
+Reference: [RaspberryPI Ros](http://www.takktile.com/tutorial:raspberrypi-ros)
+
 ###### Test I2C Connection
 1. Wire the Raspberry Pi to the Arduino UNO
 ```
