@@ -10,6 +10,8 @@
  by Zack Pelster
 */
 
+#define DEBUG 1
+
 #include <Wire.h>
 #include <Servo.h>
 
@@ -18,9 +20,10 @@
 Servo myservo;  // create servo object to control a servo
 
 int potpin = 0;  // analog pin used to connect the potentiometer
-int servopin = 0; // PWM pin used to connect the servo
+int servopin = 9; // PWM pin used to connect the servo
 int past_val, val = 0; // variable to read the value from the analog pin
 int past_angle, angle = 0; // hold angle of the servo
+uint8_t bytes[2];
 
 void setup() {
   Serial.begin(9600); // start serial for output
@@ -44,22 +47,31 @@ void loop() {
 void receiveData(int byteCount){
 
   while(Wire.available()) {
-    past_angle = angle;
     angle = Wire.read();
+    #if DEBUG
     if(past_angle != angle){ // prevent the monitor from being overwhelmed
       Serial.print("Angle received: ");
       Serial.println(angle);
     }
+    past_angle = angle;
+    #endif
     myservo.write(angle); // sets the servo position according to the scaled value
   }
 }
 
 // callback for sending data
 void sendData(){
-  past_val = val;
   val = analogRead(potpin); // reads the value of the potentiometer (value between 0 and 1023)
+  #if DEBUG
   if(past_val != val){ // prevent the monitor from being overwhelmed
     Serial.println(val);
+    Serial.print(bytes[0]);
+    Serial.print(", ");
+    Serial.println(bytes[1]);
   }
-  Wire.write(val);
+  past_val = val;
+  #endif
+  bytes[0] = val;
+  bytes[1] = val >> 8;
+  Wire.write(bytes, 2);
 }
