@@ -152,3 +152,16 @@ Reference: [Ros Melodic Morenia](https://http://wiki.ros.org/melodic#Platforms)
 $ catkin_make
 ```
 
+###### I2C Through ROS
+1. Download repository
+2. Run `catkin_make`
+3. Install the [arduino_client](/archive/arduino_client/arduino_client.iso) on the UNO
+4. Install smbus2 with:
+```
+$ pip install smbus2
+```
+   - Install pip if needed
+5. Run ROS with:
+```
+roslaunch i2c_communication i2c_communication.launch
+```
