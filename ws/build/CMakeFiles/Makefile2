@@ -1289,10 +1289,10 @@ clean: i2c_communication/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
 # Target rules for target i2c_communication/CMakeFiles/i2c_communication_generate_messages.dir
 
 # All Build rule for target.
+i2c_communication/CMakeFiles/i2c_communication_generate_messages.dir/all: i2c_communication/CMakeFiles/i2c_communication_generate_messages_py.dir/all
 i2c_communication/CMakeFiles/i2c_communication_generate_messages.dir/all: i2c_communication/CMakeFiles/i2c_communication_generate_messages_nodejs.dir/all
 i2c_communication/CMakeFiles/i2c_communication_generate_messages.dir/all: i2c_communication/CMakeFiles/i2c_communication_generate_messages_eus.dir/all
 i2c_communication/CMakeFiles/i2c_communication_generate_messages.dir/all: i2c_communication/CMakeFiles/i2c_communication_generate_messages_cpp.dir/all
-i2c_communication/CMakeFiles/i2c_communication_generate_messages.dir/all: i2c_communication/CMakeFiles/i2c_communication_generate_messages_py.dir/all
 i2c_communication/CMakeFiles/i2c_communication_generate_messages.dir/all: i2c_communication/CMakeFiles/i2c_communication_generate_messages_lisp.dir/all
 	$(MAKE) -f i2c_communication/CMakeFiles/i2c_communication_generate_messages.dir/build.make i2c_communication/CMakeFiles/i2c_communication_generate_messages.dir/depend
 	$(MAKE) -f i2c_communication/CMakeFiles/i2c_communication_generate_messages.dir/build.make i2c_communication/CMakeFiles/i2c_communication_generate_messages.dir/build
@@ -1325,6 +1325,24 @@ i2c_communication/CMakeFiles/i2c_communication_generate_messages.dir/clean:
 clean: i2c_communication/CMakeFiles/i2c_communication_generate_messages.dir/clean
 
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory rospy_tutorials
+
+# Convenience name for "all" pass in the directory.
+rospy_tutorials/all:
+
+.PHONY : rospy_tutorials/all
+
+# Convenience name for "clean" pass in the directory.
+rospy_tutorials/clean:
+
+.PHONY : rospy_tutorials/clean
+
+# Convenience name for "preinstall" pass in the directory.
+rospy_tutorials/preinstall:
+
+.PHONY : rospy_tutorials/preinstall
 
 #=============================================================================
 # Special targets to cleanup operation of make.
