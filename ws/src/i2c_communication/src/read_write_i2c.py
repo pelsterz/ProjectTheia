@@ -9,53 +9,53 @@ from smbus2 import SMBus, i2c_msg
 from i2c_communication.msg import i2c
 
 bus = None
-address = 0x04
 
-class Send:
-    def __init__(self):
-        self.value = 0
+def callback(send_msg):
+    # Get time stamp and place in header
+    msg.header.stamp = rospy.Time.now()
+    
+    # Setup write message and read message
+    # Write message sends out value on address
+    write = i2c_msg.write(send_msg.address, send_msg.value)
+    # Read message receives two bytes from address
+    read = i2c_msg.read(send_msg.address, 2)
 
-def callback(angle_msg):
-    message.value = angle_msg.value
+    # Use SMBus to communicate
+    with SMBus(1) as bus:
+        try:
+            bus.i2c_rdwr(write, read)
+
+            # Arrange received 16-bit value
+            value = 0
+            i = 0
+            for val in read:
+                value += val << 8*i
+                i += 1
+
+            msg.value = value & 0x03FF
+
+        # Catch error when i2c fails
+        except IOError:
+            # Handle IOError (Try sending message again next loop)
+            subprocess.call(['i2cdetect', '-y', '1'])
+
+    # Publish received i2c message
+    pub.publish(msg)
+
 
 if __name__ == "__main__":
     # Initialize the node
     rospy.init_node('read_write_i2c', log_level=rospy.DEBUG)
 
     # Setup publisher
-    pub = rospy.Publisher('/pot_raw',i2c,queue_size=10)
+    pub = rospy.Publisher('/i2c_receive',i2c,queue_size=10)
 
     # Setup subscriber
-    sub = rospy.Subscriber('/servo_angle',i2c,callback)
+    sub = rospy.Subscriber('/sensor',i2c,callback)
 
-    message = Send()
-
+    # Setup i2c message for what was received
     msg = i2c()
-    msg.header.frame_id = 'pot'
+    msg.header.frame_id = 'received'
 
-    rate = rospy.Rate(100) # Set rate
-
-    # Loop until ROS is shutdown
-    while not rospy.is_shutdown():
-        # Add values to message
-        msg.header.stamp = rospy.Time.now()
-        
-        write = i2c_msg.write(address, [message.value])
-        read = i2c_msg.read(address, 2)
-        with SMBus(1) as bus:
-            try:
-                bus.i2c_rdwr(write, read)
-                value = 0
-                i = 0
-                for val in read:
-                    value += val << 8*i
-                    i += 1
-
-                msg.value = value & 0x03FF
-
-            except IOError:
-                # Handle IOError (Try sending message again next loop)
-                subprocess.call(['i2cdetect', '-y', '1'])
-
-        pub.publish(msg)
-        rate.sleep()
+    # Turn control over to ROS
+    rospy.spin()
