@@ -26,11 +26,21 @@ struct i2c_
 
   i2c_()
     : header()
-    , value(0)  {
+    , action(0)
+    , address(0)
+    , register(0)
+    , bit_start(0)
+    , length(0)
+    , value()  {
     }
   i2c_(const ContainerAllocator& _alloc)
     : header(_alloc)
-    , value(0)  {
+    , action(0)
+    , address(0)
+    , register(0)
+    , bit_start(0)
+    , length(0)
+    , value(_alloc)  {
   (void)_alloc;
     }
 
@@ -39,7 +49,22 @@ struct i2c_
    typedef  ::std_msgs::Header_<ContainerAllocator>  _header_type;
   _header_type header;
 
-   typedef uint16_t _value_type;
+   typedef uint8_t _action_type;
+  _action_type action;
+
+   typedef uint8_t _address_type;
+  _address_type address;
+
+   typedef uint8_t _register_type;
+  _register_type register;
+
+   typedef uint8_t _bit_start_type;
+  _bit_start_type bit_start;
+
+   typedef uint8_t _length_type;
+  _length_type length;
+
+   typedef std::vector<uint8_t, typename ContainerAllocator::template rebind<uint8_t>::other >  _value_type;
   _value_type value;
 
 
@@ -120,12 +145,12 @@ struct MD5Sum< ::i2c_communication::i2c_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "5760aa9c40c2caa52a04d293094e679d";
+    return "02bbf66b000fb349dca73007c00d3fea";
   }
 
   static const char* value(const ::i2c_communication::i2c_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x5760aa9c40c2caa5ULL;
-  static const uint64_t static_value2 = 0x2a04d293094e679dULL;
+  static const uint64_t static_value1 = 0x02bbf66b000fb349ULL;
+  static const uint64_t static_value2 = 0xdca73007c00d3feaULL;
 };
 
 template<class ContainerAllocator>
@@ -145,7 +170,12 @@ struct Definition< ::i2c_communication::i2c_<ContainerAllocator> >
   static const char* value()
   {
     return "Header header\n"
-"uint16 value\n"
+"uint8 action\n"
+"uint8 address\n"
+"uint8 register\n"
+"uint8 bit_start\n"
+"uint8 length\n"
+"uint8[] value\n"
 "\n"
 "================================================================================\n"
 "MSG: std_msgs/Header\n"
@@ -181,6 +211,11 @@ namespace serialization
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
       stream.next(m.header);
+      stream.next(m.action);
+      stream.next(m.address);
+      stream.next(m.register);
+      stream.next(m.bit_start);
+      stream.next(m.length);
       stream.next(m.value);
     }
 
@@ -203,8 +238,22 @@ struct Printer< ::i2c_communication::i2c_<ContainerAllocator> >
     s << indent << "header: ";
     s << std::endl;
     Printer< ::std_msgs::Header_<ContainerAllocator> >::stream(s, indent + "  ", v.header);
-    s << indent << "value: ";
-    Printer<uint16_t>::stream(s, indent + "  ", v.value);
+    s << indent << "action: ";
+    Printer<uint8_t>::stream(s, indent + "  ", v.action);
+    s << indent << "address: ";
+    Printer<uint8_t>::stream(s, indent + "  ", v.address);
+    s << indent << "register: ";
+    Printer<uint8_t>::stream(s, indent + "  ", v.register);
+    s << indent << "bit_start: ";
+    Printer<uint8_t>::stream(s, indent + "  ", v.bit_start);
+    s << indent << "length: ";
+    Printer<uint8_t>::stream(s, indent + "  ", v.length);
+    s << indent << "value[]" << std::endl;
+    for (size_t i = 0; i < v.value.size(); ++i)
+    {
+      s << indent << "  value[" << i << "]: ";
+      Printer<uint8_t>::stream(s, indent + "  ", v.value[i]);
+    }
   }
 };
 

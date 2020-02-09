@@ -16,17 +16,27 @@
 
 (defclass i2c_communication::i2c
   :super ros::object
-  :slots (_header _value ))
+  :slots (_header _action _address _register _bit_start _length _value ))
 
 (defmethod i2c_communication::i2c
   (:init
    (&key
     ((:header __header) (instance std_msgs::Header :init))
-    ((:value __value) 0)
+    ((:action __action) 0)
+    ((:address __address) 0)
+    ((:register __register) 0)
+    ((:bit_start __bit_start) 0)
+    ((:length __length) 0)
+    ((:value __value) (make-array 0 :initial-element 0 :element-type :char))
     )
    (send-super :init)
    (setq _header __header)
-   (setq _value (round __value))
+   (setq _action (round __action))
+   (setq _address (round __address))
+   (setq _register (round __register))
+   (setq _bit_start (round __bit_start))
+   (setq _length (round __length))
+   (setq _value __value)
    self)
   (:header
    (&rest __header)
@@ -35,6 +45,21 @@
      (progn
        (if __header (setq _header (car __header)))
        _header)))
+  (:action
+   (&optional __action)
+   (if __action (setq _action __action)) _action)
+  (:address
+   (&optional __address)
+   (if __address (setq _address __address)) _address)
+  (:register
+   (&optional __register)
+   (if __register (setq _register __register)) _register)
+  (:bit_start
+   (&optional __bit_start)
+   (if __bit_start (setq _bit_start __bit_start)) _bit_start)
+  (:length
+   (&optional __length)
+   (if __length (setq _length __length)) _length)
   (:value
    (&optional __value)
    (if __value (setq _value __value)) _value)
@@ -43,8 +68,18 @@
    (+
     ;; std_msgs/Header _header
     (send _header :serialization-length)
-    ;; uint16 _value
-    2
+    ;; uint8 _action
+    1
+    ;; uint8 _address
+    1
+    ;; uint8 _register
+    1
+    ;; uint8 _bit_start
+    1
+    ;; uint8 _length
+    1
+    ;; uint8[] _value
+    (* 1    (length _value)) 4
     ))
   (:serialize
    (&optional strm)
@@ -52,25 +87,53 @@
               (make-string-output-stream (send self :serialization-length)))))
      ;; std_msgs/Header _header
        (send _header :serialize s)
-     ;; uint16 _value
-       (write-word _value s)
+     ;; uint8 _action
+       (write-byte _action s)
+     ;; uint8 _address
+       (write-byte _address s)
+     ;; uint8 _register
+       (write-byte _register s)
+     ;; uint8 _bit_start
+       (write-byte _bit_start s)
+     ;; uint8 _length
+       (write-byte _length s)
+     ;; uint8[] _value
+     (write-long (length _value) s)
+     (princ _value s)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
    ;; std_msgs/Header _header
      (send _header :deserialize buf ptr-) (incf ptr- (send _header :serialization-length))
-   ;; uint16 _value
-     (setq _value (sys::peek buf ptr- :short)) (incf ptr- 2)
+   ;; uint8 _action
+     (setq _action (sys::peek buf ptr- :char)) (incf ptr- 1)
+   ;; uint8 _address
+     (setq _address (sys::peek buf ptr- :char)) (incf ptr- 1)
+   ;; uint8 _register
+     (setq _register (sys::peek buf ptr- :char)) (incf ptr- 1)
+   ;; uint8 _bit_start
+     (setq _bit_start (sys::peek buf ptr- :char)) (incf ptr- 1)
+   ;; uint8 _length
+     (setq _length (sys::peek buf ptr- :char)) (incf ptr- 1)
+   ;; uint8[] _value
+   (let ((n (sys::peek buf ptr- :integer))) (incf ptr- 4)
+     (setq _value (make-array n :element-type :char))
+     (replace _value buf :start2 ptr-) (incf ptr- n))
    ;;
    self)
   )
 
-(setf (get i2c_communication::i2c :md5sum-) "5760aa9c40c2caa52a04d293094e679d")
+(setf (get i2c_communication::i2c :md5sum-) "02bbf66b000fb349dca73007c00d3fea")
 (setf (get i2c_communication::i2c :datatype-) "i2c_communication/i2c")
 (setf (get i2c_communication::i2c :definition-)
       "Header header
-uint16 value
+uint8 action
+uint8 address
+uint8 register
+uint8 bit_start
+uint8 length
+uint8[] value
 
 ================================================================================
 MSG: std_msgs/Header
@@ -92,6 +155,6 @@ string frame_id
 
 
 
-(provide :i2c_communication/i2c "5760aa9c40c2caa52a04d293094e679d")
+(provide :i2c_communication/i2c "02bbf66b000fb349dca73007c00d3fea")
 
 

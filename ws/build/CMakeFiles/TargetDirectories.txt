@@ -69,10 +69,3 @@
 /home/ubuntu/project_theia/ws/build/i2c_communication/CMakeFiles/roscpp_generate_messages_lisp.dir
 /home/ubuntu/project_theia/ws/build/i2c_communication/CMakeFiles/roscpp_generate_messages_cpp.dir
 /home/ubuntu/project_theia/ws/build/i2c_communication/CMakeFiles/i2c_communication_generate_messages.dir
-/home/ubuntu/project_theia/ws/build/rospy_tutorials/CMakeFiles/install/strip.dir
-/home/ubuntu/project_theia/ws/build/rospy_tutorials/CMakeFiles/edit_cache.dir
-/home/ubuntu/project_theia/ws/build/rospy_tutorials/CMakeFiles/rebuild_cache.dir
-/home/ubuntu/project_theia/ws/build/rospy_tutorials/CMakeFiles/list_install_components.dir
-/home/ubuntu/project_theia/ws/build/rospy_tutorials/CMakeFiles/install.dir
-/home/ubuntu/project_theia/ws/build/rospy_tutorials/CMakeFiles/test.dir
-/home/ubuntu/project_theia/ws/build/rospy_tutorials/CMakeFiles/install/local.dir

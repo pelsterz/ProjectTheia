@@ -18,14 +18,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "i2c_communication/catkin_generated/ordered_paths.cmake"
   "i2c_communication/catkin_generated/package.cmake"
   "i2c_communication/cmake/i2c_communication-genmsg.cmake"
-  "rospy_tutorials/catkin_generated/ordered_paths.cmake"
-  "rospy_tutorials/catkin_generated/package.cmake"
   "/home/ubuntu/project_theia/ws/devel/share/i2c_communication/cmake/i2c_communication-msg-paths.cmake"
   "/home/ubuntu/project_theia/ws/src/CMakeLists.txt"
   "/home/ubuntu/project_theia/ws/src/i2c_communication/CMakeLists.txt"
   "/home/ubuntu/project_theia/ws/src/i2c_communication/package.xml"
-  "/home/ubuntu/project_theia/ws/src/rospy_tutorials/CMakeLists.txt"
-  "/home/ubuntu/project_theia/ws/src/rospy_tutorials/package.xml"
   "/opt/ros/melodic/share/catkin/cmake/../package.xml"
   "/opt/ros/melodic/share/catkin/cmake/all.cmake"
   "/opt/ros/melodic/share/catkin/cmake/assert.cmake"
@@ -209,7 +205,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "gtest/googlemock/CMakeFiles/CMakeDirectoryInformation.cmake"
   "gtest/googlemock/gtest/CMakeFiles/CMakeDirectoryInformation.cmake"
   "i2c_communication/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "rospy_tutorials/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:

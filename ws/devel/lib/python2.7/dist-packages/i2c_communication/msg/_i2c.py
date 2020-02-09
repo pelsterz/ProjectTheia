@@ -8,11 +8,16 @@ import struct
 import std_msgs.msg
 
 class i2c(genpy.Message):
-  _md5sum = "5760aa9c40c2caa52a04d293094e679d"
+  _md5sum = "02bbf66b000fb349dca73007c00d3fea"
   _type = "i2c_communication/i2c"
   _has_header = True #flag to mark the presence of a Header object
   _full_text = """Header header
-uint16 value
+uint8 action
+uint8 address
+uint8 register
+uint8 bit_start
+uint8 length
+uint8[] value
 
 ================================================================================
 MSG: std_msgs/Header
@@ -30,8 +35,8 @@ time stamp
 #Frame this data is associated with
 string frame_id
 """
-  __slots__ = ['header','value']
-  _slot_types = ['std_msgs/Header','uint16']
+  __slots__ = ['header','action','address','register','bit_start','length','value']
+  _slot_types = ['std_msgs/Header','uint8','uint8','uint8','uint8','uint8','uint8[]']
 
   def __init__(self, *args, **kwds):
     """
@@ -41,7 +46,7 @@ string frame_id
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       header,value
+       header,action,address,register,bit_start,length,value
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -52,11 +57,26 @@ string frame_id
       #message fields cannot be None, assign default values for those that are
       if self.header is None:
         self.header = std_msgs.msg.Header()
+      if self.action is None:
+        self.action = 0
+      if self.address is None:
+        self.address = 0
+      if self.register is None:
+        self.register = 0
+      if self.bit_start is None:
+        self.bit_start = 0
+      if self.length is None:
+        self.length = 0
       if self.value is None:
-        self.value = 0
+        self.value = b''
     else:
       self.header = std_msgs.msg.Header()
-      self.value = 0
+      self.action = 0
+      self.address = 0
+      self.register = 0
+      self.bit_start = 0
+      self.length = 0
+      self.value = b''
 
   def _get_types(self):
     """
@@ -78,7 +98,15 @@ string frame_id
         _x = _x.encode('utf-8')
         length = len(_x)
       buff.write(struct.pack('<I%ss'%length, length, _x))
-      buff.write(_get_struct_H().pack(self.value))
+      _x = self
+      buff.write(_get_struct_5B().pack(_x.action, _x.address, _x.register, _x.bit_start, _x.length))
+      _x = self.value
+      length = len(_x)
+      # - if encoded as a list instead, serialize as bytes instead of string
+      if type(_x) in [list, tuple]:
+        buff.write(struct.pack('<I%sB'%length, length, *_x))
+      else:
+        buff.write(struct.pack('<I%ss'%length, length, _x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -104,9 +132,16 @@ string frame_id
         self.header.frame_id = str[start:end].decode('utf-8')
       else:
         self.header.frame_id = str[start:end]
+      _x = self
       start = end
-      end += 2
-      (self.value,) = _get_struct_H().unpack(str[start:end])
+      end += 5
+      (_x.action, _x.address, _x.register, _x.bit_start, _x.length,) = _get_struct_5B().unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      self.value = str[start:end]
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -127,7 +162,15 @@ string frame_id
         _x = _x.encode('utf-8')
         length = len(_x)
       buff.write(struct.pack('<I%ss'%length, length, _x))
-      buff.write(_get_struct_H().pack(self.value))
+      _x = self
+      buff.write(_get_struct_5B().pack(_x.action, _x.address, _x.register, _x.bit_start, _x.length))
+      _x = self.value
+      length = len(_x)
+      # - if encoded as a list instead, serialize as bytes instead of string
+      if type(_x) in [list, tuple]:
+        buff.write(struct.pack('<I%sB'%length, length, *_x))
+      else:
+        buff.write(struct.pack('<I%ss'%length, length, _x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -154,9 +197,16 @@ string frame_id
         self.header.frame_id = str[start:end].decode('utf-8')
       else:
         self.header.frame_id = str[start:end]
+      _x = self
       start = end
-      end += 2
-      (self.value,) = _get_struct_H().unpack(str[start:end])
+      end += 5
+      (_x.action, _x.address, _x.register, _x.bit_start, _x.length,) = _get_struct_5B().unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      self.value = str[start:end]
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -165,15 +215,15 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_H = None
-def _get_struct_H():
-    global _struct_H
-    if _struct_H is None:
-        _struct_H = struct.Struct("<H")
-    return _struct_H
 _struct_3I = None
 def _get_struct_3I():
     global _struct_3I
     if _struct_3I is None:
         _struct_3I = struct.Struct("<3I")
     return _struct_3I
+_struct_5B = None
+def _get_struct_5B():
+    global _struct_5B
+    if _struct_5B is None:
+        _struct_5B = struct.Struct("<5B")
+    return _struct_5B
