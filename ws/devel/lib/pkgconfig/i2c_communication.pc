@@ -4,5 +4,5 @@ Name: i2c_communication
 Description: Description of i2c_communication
 Version: 0.0.0
 Cflags: -I/home/ubuntu/project_theia/ws/devel/include
-Libs: -L/home/ubuntu/project_theia/ws/devel/lib 
+Libs: -L${prefix}/lib 
 Requires: message_runtime roscpp rospy std_msgs

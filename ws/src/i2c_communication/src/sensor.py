@@ -3,23 +3,30 @@
 import time
 import rospy
 import math
+import struct
 
 from i2c_communication.msg import i2c
 from geometry_msgs.msg import Twist
 
 address = 0x68
 
+def bytes_to_int(input_bytes):
+    uint = struct.unpack('>HHHHHHH', input_bytes)
+    return uint
+
+
 def callback(received):
     # Setup Twist message
     received_msg = Twist()
 
     if received.action == 1: # Post data from an extended read
-        received_msg.linear.x = (received.value[0] << 8) | received.value[1]
-        received_msg.linear.y = (received.value[2] << 8) | received.value[3]
-        received_msg.linear.z = (received.value[4] << 8) | received.value[5]
-        received_msg.angular.x = (received.value[8] << 8) | received.value[9]
-        received_msg.angular.y = (received.value[10] << 8) | received.value[11]
-        received_msg.angular.z = (received.value[12] << 8) | received.value[13]
+        sensor_val = bytes_to_int(received.value)
+        received_msg.linear.x = sensor_val[0]
+        received_msg.linear.y = sensor_val[1]
+        received_msg.linear.z = sensor_val[2]
+        received_msg.angular.x = sensor_val[4]
+        received_msg.angular.y = sensor_val[5]
+        received_msg.angular.z = sensor_val[6]
 
         pub.publish(received_msg)
 
@@ -65,6 +72,9 @@ def write(register, bit_start, length, value):
 
 
 def initialize():
+    # Delay to ensure initialize messages reach i2c node
+    rospy.sleep(1)
+    
     print("Initialize sensor begun")
     write(0x6B, 2, 3, 0x01) # Set the clock source to be the X Gyro
     write(0x1B, 4, 2, 0x00) # Set the gyroscope to its most sensitive setting
@@ -87,14 +97,14 @@ if __name__ == "__main__":
 
     rate = rospy.Rate(1) # Set read rate (Hz)
 
-    # Setup MPU6050
+    # Setup MPU6050 if just starting
     initialize()
 
     # Loop until ROS is shutdown
     while not rospy.is_shutdown():
         # Get raw 6-axis motion sensor readings (accel/gyro)
         read_extended(0x3B, 14)
-
+        
         # Sleep for prescribed amount of time
         rate.sleep()
 

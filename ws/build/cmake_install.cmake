@@ -132,6 +132,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/ubuntu/project_theia/ws/build/gtest/cmake_install.cmake")
   include("/home/ubuntu/project_theia/ws/build/i2c_communication/cmake_install.cmake")
+  include("/home/ubuntu/project_theia/ws/build/interpreter/cmake_install.cmake")
+  include("/home/ubuntu/project_theia/ws/build/video_stream_opencv/cmake_install.cmake")
 
 endif()
 

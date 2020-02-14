@@ -1,0 +1,8 @@
+prefix=/home/ubuntu/project_theia/ws/install
+
+Name: interpreter
+Description: Description of interpreter
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 

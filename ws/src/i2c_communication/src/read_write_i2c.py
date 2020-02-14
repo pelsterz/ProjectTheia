@@ -3,24 +3,33 @@
 import subprocess
 import time
 import rospy
+import struct
 
 from smbus2 import SMBus, i2c_msg
 
 from i2c_communication.msg import i2c
 
 bus = None
-msg = None
+
+def bytes_to_int(input_bytes):
+    uint = struct.unpack('>B', input_bytes)
+    return uint
 
 def callback(send_msg):
+    # Setup i2c message for what was received
+    msg = i2c()
+    msg.header.frame_id = 'received'
+
     if send_msg.action == 0: # Read
         # Get time stamp and place in header
         msg.header.stamp = rospy.Time.now()
         msg.register = send_msg.register
+        msg.action = send_msg.action
         
         # Use SMBus to communicate
         with SMBus(1) as bus:
             try:
-                msg.value = bus.read_byte_data(send_msg.address, send_msg.register)
+                msg.value = [bus.read_byte_data(send_msg.address, send_msg.register)]
 
             # Catch error when i2c fails
             except IOError:
@@ -35,6 +44,7 @@ def callback(send_msg):
         msg.header.stamp = rospy.Time.now()
         msg.register = send_msg.register
         msg.length = send_msg.length
+        msg.action = send_msg.action
         
         # Use SMBus to communicate
         with SMBus(1) as bus:
@@ -51,7 +61,7 @@ def callback(send_msg):
         
     elif send_msg.action == 2: # Write
         # Read byte then write over appropriate bits of byte
-        
+
         # Use SMBus to communicate
         with SMBus(1) as bus:
             try:
@@ -62,11 +72,12 @@ def callback(send_msg):
                 # Handle IOError
                 print("IOError during read before write")
             
+            send_msg.value = [0]
             mask = ((1 << send_msg.length) - 1) << (send_msg.bit_start - send_msg.length + 1)
-            send_msg.value <<= (send_msg.bit_start - send_msg.length + 1)
-            send_msg.value &= mask
+            send_msg.value[0] <<= (send_msg.bit_start - send_msg.length + 1)
+            send_msg.value[0] &= mask
             b &= ~(mask)
-            b |= send_msg.value
+            b |= send_msg.value[0]
 
             try:
                 bus.write_byte_data(send_msg.address, send_msg.register, b)
@@ -82,7 +93,10 @@ def callback(send_msg):
         # Use SMBus to communicate
         with SMBus(1) as bus:
             # Setup write message to send register and value
-            write = i2c_msg.write(send_msg.address, [send_msg.register, send_msg.value])
+            print send_msg.address
+            print send_msg.register
+            print bytes_to_int(send_msg.value)[0]
+            write = i2c_msg.write(send_msg.address, [send_msg.register, bytes_to_int(send_msg.value)[0]])
 
             try:
                 bus.i2c_rdwr(write)
@@ -103,9 +117,7 @@ if __name__ == "__main__":
     # Setup subscriber
     sub = rospy.Subscriber('/sensor_send',i2c,callback)
 
-    # Setup i2c message for what was received
-    msg = i2c()
-    msg.header.frame_id = 'received'
+    sub1 = rospy.Subscriber('/iout',i2c,callback)
 
     print("read_write_i2c ready")
 
